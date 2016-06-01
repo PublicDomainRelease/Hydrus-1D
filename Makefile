@@ -1,5 +1,5 @@
-FC = gfortran
-FFLAGS = -DGFORTRAN
+FC = ifort 
+#FFLAGS = -DGFORTRAN
 PROG = h1d_calc
 OBJS = hydrus.o \
     hyster.o \

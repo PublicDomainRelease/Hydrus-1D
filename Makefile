@@ -1,4 +1,4 @@
-FC = ifort 
+FC ?= ifort
 #FFLAGS = -DGFORTRAN
 PROG = h1d_calc
 OBJS = hydrus.o \

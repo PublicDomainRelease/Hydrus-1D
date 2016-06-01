@@ -740,7 +740,7 @@ c        read(*,*)
      !          Ah(NumNP),AK(NumNP),ParW(11,NMat)
 
       iLengthPath = Len_Trim(cDataPath)
-      cFileName = cDataPath(1:iLengthPath)//'\Hysteresis.in'
+      cFileName = cDataPath(1:iLengthPath)//'/hysteresis.in'
       open(35,file=cFileName,status='old',err=901)
       read(35,*,err=901) ! Input file "Hyster.in"
       read(35,*,err=901) ! n,Theta,Kappa
@@ -1455,13 +1455,13 @@ c        if(lActRSU) then              ! Active uptake only for the last solute
       do 11 i=1,NS
         if(i.le.9) then
           write(ch1,'(i1)') i
-          cName = '\solutex.out'
+          cName = '/solutex.out'
           cName(8:8) = ch1
           cFileName = cDataPath(1:iLengthPath)//cName
         else
           write(ch1,'(i1)') 1
           write(ch2,'(i1)') i-10
-          cName1 = '\solutexx.out'
+          cName1 = '/solutexx.out'
           cName1(8:8) = ch1
           cName1(9:9) = ch2
           cFileName = cDataPath(1:iLengthPath)//cName1

@@ -108,14 +108,14 @@
         i2=1
         call GETARG(i2, cDataPath, status)
       else
-        cFileName = 'LEVEL_01.DIR'
+        cFileName = 'level_01.dir'
         open(10,file=cFileName, status='old',err=901)
         read(10,101,err=904) cDataPath
         close (10)
       end if
       iLengthPath = Len_Trim(cDataPath)
       if(iLengthPath.gt.260-13) goto 930
-      cFileName = cDataPath(1:iLengthPath)//'\Options.in'
+      cFileName = cDataPath(1:iLengthPath)//'/options.in'
       open(35,file=cFileName, status='old',err=998)
 998   continue
 
@@ -133,24 +133,24 @@
      !          OmegaW,lEnd,lVaporOut,lFluxOut)
       data iUnit /50,70,71,75,76,77,78/
 
-      cFileName = cDataPath(1:iLengthPath)//'\Selector.in'
+      cFileName = cDataPath(1:iLengthPath)//'/selector.in'
       open(30,file=cFileName, status='old',err=901)
-      cFileName = cDataPath(1:iLengthPath)//'\Profile.dat'
+      cFileName = cDataPath(1:iLengthPath)//'/profile.dat'
       open(32,file=cFileName, status='old',err=901)
-      cFileName = cDataPath(1:iLengthPath)//'\I_CHECK.OUT'
+      cFileName = cDataPath(1:iLengthPath)//'/i_check.out'
       open(50,file=cFileName, status='unknown',err=902)
       if(lPrint) then
-        cFileName = cDataPath(1:iLengthPath)//'\RUN_INF.OUT'
+        cFileName = cDataPath(1:iLengthPath)//'/run_inf.out'
         open(70,file=cFileName, status='unknown',err=902)
-        cFileName = cDataPath(1:iLengthPath)//'\T_LEVEL.OUT'
+        cFileName = cDataPath(1:iLengthPath)//'/t_level.out'
         open(71,file=cFileName, status='unknown',err=902)
-        cFileName = cDataPath(1:iLengthPath)//'\NOD_INF.OUT'
+        cFileName = cDataPath(1:iLengthPath)//'/nod_inf.out'
         open(75,file=cFileName, status='unknown',err=902)
-        cFileName = cDataPath(1:iLengthPath)//'\BALANCE.OUT'
+        cFileName = cDataPath(1:iLengthPath)//'/balance.out'
         open(76,file=cFileName, status='unknown',err=902)
-        cFileName = cDataPath(1:iLengthPath)//'\OBS_NODE.OUT'
+        cFileName = cDataPath(1:iLengthPath)//'/obs_node.out'
         open(77,file=cFileName, status='unknown',err=902)
-        cFileName = cDataPath(1:iLengthPath)//'\PROFILE.OUT'
+        cFileName = cDataPath(1:iLengthPath)//'/profile.out'
         open(78,file=cFileName, status='unknown',err=902)
       end if
 
@@ -168,26 +168,26 @@
 
       if(lPrint) then
         if(lFluxOut) then
-          cFileName = cDataPath(1:iLengthPath)//'\T_Level1.OUT'
+          cFileName = cDataPath(1:iLengthPath)//'/t_level1.out'
           open(44,file=cFileName, status='unknown',err=902)
         end if
         if(lVaporOut.and.lVapor) then
-          cFileName = cDataPath(1:iLengthPath)//'\NOD_INF_V.OUT'
+          cFileName = cDataPath(1:iLengthPath)//'/nod_inf_v.out'
           open(45,file=cFileName, status='unknown',err=902)
         end if
       end if
       if(TopInF.or.BotInF.or.AtmBC) then
-        cFileName = cDataPath(1:iLengthPath)//'\ATMOSPH.IN'
+        cFileName = cDataPath(1:iLengthPath)//'/atmosph.in'
         open(31,file=cFileName, status='old',err=901)
         if(lPrint) then
-          cFileName = cDataPath(1:iLengthPath)//'\A_LEVEL.OUT'
+          cFileName = cDataPath(1:iLengthPath)//'/a_level.out'
           open(72,file=cFileName, status='unknown',err=902)
         end if
         if(lMeteo) then
-          cFileName = cDataPath(1:iLengthPath)//'\Meteo.in'
+          cFileName = cDataPath(1:iLengthPath)//'/meteo.in'
           open(33,file=cFileName, status='old',err=902)
           if(lPrint) then
-            cFileName = cDataPath(1:iLengthPath)//'\Meteo.out'
+            cFileName = cDataPath(1:iLengthPath)//'/meteo.out'
             open(43,file=cFileName, status='unknown',err=902)
           end if
         end if
@@ -208,7 +208,7 @@
      !              AThS,ThRR,ConO,ConR,AKS,KappaO,Ah,AK,iHyst,iModel,
      !              cDataPath)      
       if(iModel.eq.nTabMod) then
-        cFileName = cDataPath(1:iLengthPath)//'\Mater.in'
+        cFileName = cDataPath(1:iLengthPath)//'/mater.in'
         open(36,file=cFileName, status='old',err=901)
       end if
       if(lInitW.and.iModel.lt.nTabMod) then
@@ -824,7 +824,7 @@ c      goto 1000
       cErr(33)='Crop Height must be smaller than the height of wind and 
      !temperature measurements!'
 
-      cFileNameErr = cDataPath(1:iLengthPath)//'\Error.msg'
+      cFileNameErr = cDataPath(1:iLengthPath)//'/error.msg'
       open(99,file=cFileNameErr,status='unknown',err=901)
       if(ierr.le.2) then
         if(lScreen) write( *,*) cErr(ierr),cFileName
